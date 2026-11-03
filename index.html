@@ -1,0 +1,667 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELVET | Restaurant & Celebrations</title>
+<meta name="description" content="Discover VELVET Restaurant on Tithal Road, Valsad. Dining, birthday celebrations, bouquets, rooms and garden dining.">
+
+<style>
+:root {
+  --gold: #d6ad65;
+  --black: #080808;
+  --panel: #141414;
+  --muted: #b9b1a5;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--black);
+  color: white;
+  font-family: Georgia, serif;
+  line-height: 1.6;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+  font: inherit;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.97);
+  border-bottom: 1px solid #29231a;
+}
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  color: var(--gold);
+  font-size: 28px;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 14px;
+  color: #eee;
+}
+.nav-links a:hover {
+  color: var(--gold);
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 6px 12px;
+}
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 20px;
+  background:
+    linear-gradient(#0009,#000b),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+.hero-content {
+  max-width: 800px;
+}
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+h1 {
+  font-size: clamp(48px,9vw,90px);
+  letter-spacing: 9px;
+  margin: 12px 0;
+}
+.hero p {
+  color: #eee;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #111;
+  padding: 13px 25px;
+  border: 1px solid var(--gold);
+  margin: 5px;
+  font-size: 14px;
+  transition: .25s;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--gold);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+}
+section {
+  padding: 85px 6%;
+}
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+.section-title span {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: clamp(30px,5vw,44px);
+  margin-top: 8px;
+  font-weight: normal;
+}
+.section-title p {
+  color: var(--muted);
+  margin-top: 12px;
+}
+.about-grid, .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.about-image {
+  width: 100%;
+  min-height: 350px;
+  object-fit: cover;
+}
+.about-text p {
+  color: var(--muted);
+  margin: 16px 0;
+}
+.gold {
+  color: var(--gold);
+}
+.dark-section {
+  background: #101010;
+}
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.tab {
+  padding: 9px 18px;
+  background: transparent;
+  color: #eee;
+  border: 1px solid #55452c;
+}
+.tab.active, .tab:hover {
+  background: var(--gold);
+  color: #111;
+}
+.menu-grid, .service-grid, .info-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+.menu-item, .service-card, .info-card {
+  background: var(--panel);
+  border: 1px solid #29231a;
+}
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+.menu-item h3 {
+  font-size: 17px;
+  font-weight: normal;
+}
+.menu-item p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.price {
+  color: var(--gold);
+  white-space: nowrap;
+}
+.service-card {
+  padding-bottom: 25px;
+  overflow: hidden;
+}
+.service-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+.service-card h3 {
+  color: var(--gold);
+  font-size: 22px;
+  margin: 18px 20px 8px;
+}
+.service-card p {
+  color: var(--muted);
+  padding: 0 20px;
+  font-size: 14px;
+}
+.service-card a {
+  display: inline-block;
+  margin: 15px 20px 0;
+  color: var(--gold);
+}
+.info-card {
+  padding: 25px;
+}
+.info-card h3 {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.info-card p {
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.info-card a {
+  color: var(--gold);
+}
+.contact-form {
+  background: var(--panel);
+  padding: 28px;
+  border: 1px solid #29231a;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0 14px;
+  background: #090909;
+  color: white;
+  border: 1px solid #49402f;
+  font: inherit;
+}
+.contact-form label {
+  color: var(--muted);
+  font-size: 13px;
+}
+.contact-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.contact-form button {
+  width: 100%;
+}
+.map-link {
+  display: block;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #55452c;
+  color: var(--gold);
+  text-align: center;
+}
+.instagram {
+  text-align: center;
+  background: #17130e;
+}
+.instagram p {
+  color: var(--muted);
+  margin: 12px 0 22px;
+}
+footer {
+  padding: 28px 15px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid #29231a;
+  font-size: 13px;
+}
+footer strong {
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+@media(max-width:800px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: #101010;
+    padding: 20px;
+    flex-direction: column;
+    border-bottom: 1px solid #55452c;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .about-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu-grid, .service-grid, .info-grid {
+    grid-template-columns: 1fr;
+  }
+  section {
+    padding: 65px 6%;
+  }
+  .hero {
+    min-height: 75vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="nav">
+  <a class="logo" href="#home">VELVET</a>
+  <button class="menu-toggle" onclick="toggleMenu()">☰ MENU</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#menu" onclick="closeMenu()">Menu</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#location" onclick="closeMenu()">Location</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">A Place for Beautiful Moments</div>
+    <h1>VELVET</h1>
+    <p>Exceptional dining. Beautiful celebrations. Unforgettable memories.</p>
+    <a class="btn" href="#menu">Explore Menu</a>
+    <a class="btn btn-outline" href="#contact">Enquire Now</a>
+  </div>
+</section>
+
+<section id="about">
+<div class="container about-grid">
+  <img class="about-image"
+    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85"
+    alt="Restaurant dining experience">
+
+  <div class="about-text">
+    <div class="eyebrow">Welcome to Velvet</div>
+    <h2>More Than Just <span class="gold">Dining</span></h2>
+    <p>Welcome to VELVET, a place where great food meets beautiful experiences. Whether you are planning a family dinner, a birthday celebration or a special evening, we aim to make every visit memorable.</p>
+    <p>Discover delicious food, thoughtfully designed spaces and celebrations made special.</p>
+    <a class="btn" href="#services">Discover Our Services</a>
+  </div>
+</div>
+</section>
+
+<section class="dark-section" id="menu">
+<div class="container">
+  <div class="section-title">
+    <span>Our Selection</span>
+    <h2>Explore Our Menu</h2>
+    <p>Menu items and prices should be updated with the restaurant's actual menu.</p>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="tab active" onclick="showMenu('starters',this)">Starters</button>
+    <button class="tab" onclick="showMenu('main',this)">Main Course</button>
+    <button class="tab" onclick="showMenu('pizza',this)">Pizza</button>
+    <button class="tab" onclick="showMenu('desserts',this)">Desserts</button>
+    <button class="tab" onclick="showMenu('drinks',this)">Drinks</button>
+  </div>
+
+  <div class="menu-grid" id="menuItems"></div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+  <div class="section-title">
+    <span>Special Experiences</span>
+    <h2>Our Services</h2>
+    <p>Make every occasion memorable at VELVET.</p>
+  </div>
+
+  <div class="service-grid">
+
+    <article class="service-card">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80" alt="Birthday celebration">
+      <h3>Birthday Halls</h3>
+      <p>Celebrate birthdays and special days with your loved ones in a beautiful setting.</p>
+      <a href="#contact">Enquire Now →</a>
+    </article>
+
+    <article class="service-card">
+      <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80" alt="Flower bouquets">
+      <h3>Beautiful Bouquets</h3>
+      <p>Add a special touch to your celebration with beautiful floral arrangements.</p>
+      <a href="#contact">Enquire Now →</a>
+    </article>
+
+    <article class="service-card">
+      <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80" alt="Comfortable room">
+      <h3>Rooms</h3>
+      <p>Enjoy a comfortable and relaxing stay. Contact us for availability and details.</p>
+      <a href="#contact">Enquire Now →</a>
+    </article>
+
+    <article class="service-card">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Garden dining">
+      <h3>Garden Dining</h3>
+      <p>Enjoy a memorable dining experience in a beautiful outdoor atmosphere.</p>
+      <a href="#contact">Enquire Now →</a>
+    </article>
+
+    <article class="service-card">
+      <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80" alt="Special event">
+      <h3>Special Celebrations</h3>
+      <p>Make your important occasions even more special with us.</p>
+      <a href="#contact">Enquire Now →</a>
+    </article>
+
+    <article class="service-card">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=80" alt="Private event">
+      <h3>Private Events</h3>
+      <p>Get in touch to discuss your event requirements and arrangements.</p>
+      <a href="#contact">Enquire Now →</a>
+    </article>
+
+  </div>
+</div>
+</section>
+
+<section class="dark-section" id="location">
+<div class="container">
+  <div class="section-title">
+    <span>Find Us</span>
+    <h2>Visit VELVET</h2>
+    <p>We look forward to welcoming you.</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Our Address</h3>
+      <p>Tithal Road, Valsad, Gujarat – 396001</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Opening Hours</h3>
+      <p>Please contact us to confirm opening and closing timings.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Call Us</h3>
+      <p><a href="tel:+919898989898">+91 98989 89898</a></p>
+    </div>
+  </div>
+
+  <a class="map-link"
+    href="https://www.google.com/maps/search/?api=1&query=Tithal+Road+Valsad+Gujarat+396001"
+    target="_blank" rel="noopener">
+    📍 Find Us on Google Maps →
+  </a>
+</div>
+</section>
+
+<section id="contact">
+<div class="container contact-grid">
+
+  <div>
+    <div class="eyebrow">Get In Touch</div>
+    <h2>Let's Make Your <span class="gold">Moment Special</span></h2>
+    <p style="color:var(--muted);margin:18px 0;">
+      Have a question or planning a celebration? Send us an enquiry on WhatsApp.
+    </p>
+    <p class="gold">Phone: +91 98989 89898</p>
+    <p class="gold">Instagram: @velvetresturantvalsad_</p>
+  </div>
+
+  <form class="contact-form" onsubmit="sendWhatsApp(event)">
+    <h2 style="font-size:27px;margin-bottom:15px;">Send an Enquiry</h2>
+
+    <label for="name">Your Name</label>
+    <input id="name" type="text" placeholder="Enter your name" required>
+
+    <label for="phone">Your Mobile Number</label>
+    <input id="phone" type="tel" placeholder="Enter your mobile number" required>
+
+    <label for="service">Interested In</label>
+    <select id="service" required>
+      <option value="">Select a service</option>
+      <option>Restaurant Dining</option>
+      <option>Birthday Hall</option>
+      <option>Bouquet</option>
+      <option>Room Booking Enquiry</option>
+      <option>Garden Dining</option>
+      <option>Special Celebration</option>
+      <option>Private Event</option>
+      <option>Other</option>
+    </select>
+
+    <label for="message">Your Message</label>
+    <textarea id="message" placeholder="Tell us what you are planning..."></textarea>
+
+    <button class="btn" type="submit">Send Enquiry on WhatsApp</button>
+  </form>
+
+</div>
+</section>
+
+<section class="instagram">
+<div class="container">
+  <div class="eyebrow">Follow Our Journey</div>
+  <h2>Follow <span class="gold">VELVET</span></h2>
+  <p>Discover our latest updates, food and special celebrations.</p>
+  <a class="btn"
+    href="https://www.instagram.com/velvetresturantvalsad_/"
+    target="_blank" rel="noopener">
+    Visit Our Instagram
+  </a>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <strong>VELVET</strong>
+  <p>Restaurant • Celebrations • Experiences</p>
+  <p>© <span id="year"></span> VELVET. All rights reserved.</p>
+  <p>Tithal Road, Valsad, Gujarat 396001</p>
+</footer>
+
+<script>
+const menus = {
+  starters: [
+    ["Paneer Tikka","Price to be confirmed"],
+    ["Veg Crispy","Price to be confirmed"],
+    ["Hara Bhara Kebab","Price to be confirmed"],
+    ["French Fries","Price to be confirmed"],
+    ["Cheese Balls","Price to be confirmed"],
+    ["Soup of the Day","Price to be confirmed"]
+  ],
+  main: [
+    ["Paneer Butter Masala","Price to be confirmed"],
+    ["Kaju Curry","Price to be confirmed"],
+    ["Veg Kolhapuri","Price to be confirmed"],
+    ["Dal Tadka","Price to be confirmed"],
+    ["Butter Naan","Price to be confirmed"],
+    ["Jeera Rice","Price to be confirmed"]
+  ],
+  pizza: [
+    ["Margherita Pizza","Price to be confirmed"],
+    ["Farmhouse Pizza","Price to be confirmed"],
+    ["Paneer Tikka Pizza","Price to be confirmed"],
+    ["Cheese Burst Pizza","Price to be confirmed"],
+    ["Veg Supreme Pizza","Price to be confirmed"],
+    ["Classic Veg Pizza","Price to be confirmed"]
+  ],
+  desserts: [
+    ["Chocolate Brownie","Price to be confirmed"],
+    ["Ice Cream","Price to be confirmed"],
+    ["Gulab Jamun","Price to be confirmed"],
+    ["Chocolate Cake","Price to be confirmed"],
+    ["Sizzling Brownie","Price to be confirmed"],
+    ["Dessert of the Day","Price to be confirmed"]
+  ],
+  drinks: [
+    ["Fresh Lime Soda","Price to be confirmed"],
+    ["Cold Coffee","Price to be confirmed"],
+    ["Chocolate Shake","Price to be confirmed"],
+    ["Mojito","Price to be confirmed"],
+    ["Fresh Juice","Price to be confirmed"],
+    ["Soft Drinks","Price to be confirmed"]
+  ]
+};
+
+function showMenu(category, button) {
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.classList.remove("active");
+  });
+
+  button.classList.add("active");
+
+  document.getElementById("menuItems").innerHTML =
+    menus[category].map(item => `
+      <div class="menu-item">
+        <div>
+          <h3>${item[0]}</h3>
+          <p>Menu details to be confirmed</p>
+        </div>
+        <span class="price">${item[1]}</span>
+      </div>
+    `).join("");
+}
+
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+function closeMenu() {
+  document.getElementById("navLinks").classList.remove("show");
+}
+
+function sendWhatsApp(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const service = document.getElementById("service").value;
+  const message = document.getElementById("message").value.trim();
+
+  const text =
+    "Hello VELVET! I would like to make an enquiry.\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Service: " + service + "\n" +
+    "Message: " + message;
+
+  const url =
+    "https://wa.me/919898989898?text=" +
+    encodeURIComponent(text);
+
+  window.open(url, "_blank");
+}
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+showMenu("starters", document.querySelector(".tab"));
+</script>
+
+</body>
+      </html>
+    
